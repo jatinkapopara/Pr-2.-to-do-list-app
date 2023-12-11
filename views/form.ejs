@@ -1,0 +1,43 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+<center>
+    <h1>Add Tasks</h1>
+    <form method="post" action="/AddTask">
+        <table border="1">
+            <tr>
+                <td>Task :- </td>
+                <td><input type="text" name="task"></td>
+            </tr>
+            <tr>
+                <td class="border-none"></td>
+                <td><input type="submit" value="Add Task"></td>
+            </tr>
+        </table>
+    </form>
+
+    <h1 class="pb-4">All Tasks</h1>
+    <table>
+        <tr class="border  border-2">
+            <td class="p-2">#</td>
+            <td class="p-2">Task</td>
+            <td class="p-2">Rmove</td>
+            <td class="p-2">Edite</td>
+        </tr>
+    <% record.map((val)=> { %>
+        <tr>
+            <td class="p-2 border-bottom fs-4"><%= val.userid %></td>
+            <td class="p-2 border-bottom fs-5"><%= val.task %></td>
+            <td class="p-2 border-bottom"> <a href="/DeleteTask?DId=<%= val.userid %>"><i class="fa-solid fa-trash text-Danger border p-2 border-Danger"></i></a> </td>
+            <td class="p-2 border-bottom"> <a href="/EditTask?EId=<%= val.userid %>"> <i class="fa-solid fa-pen-to-square border p-2 border-Primary"> </i></a> </td>
+         </tr>
+    <% }) %>
+    </table>    
+</center>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
